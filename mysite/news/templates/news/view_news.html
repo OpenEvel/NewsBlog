@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block title %}
-    {{ title }} :: {{ block.super }}
+    {{ news_item.title }} :: {{ block.super }}
 {% endblock %}
 
 {% block sidebar %}
@@ -10,25 +10,17 @@
 
 {% block content %}
 <div class="container mt-3">
-        <h1>{{ title }}</h1>
+        <h1>{{ news_item.title }}</h1>
         <br>
         <br>
         <div class="row">
 
-            <div>
-                <div class="col-sm-12 col-md-5">
-                    <b class="nowtime">{% now "Y-m-d H:i:s" %}</b>
-                </div>
-
-            </div>
-
             <div class="col-md-12">
-                {% for item in news %}
 
                     <div class="row">
                         <div class="col-sm-8 col-md-12">
                             <div class="thumbnail">
-                                <div class="card-header">Категория: <a href="{% url 'category' item.category_id %}">{{ item.category }}</a></div>
+                                <div class="card-header">Категория: <a href="{% url 'category' news_item.category_id %}">{{ item.category }}</a></div>
                                 {% if item.photo.urls %}
                                     <img src="{{ item.photo.urlS }}" alt="{{ item.title }}" height="200" width="300"
                                          align="right" style="padding: 20px">
@@ -37,20 +29,13 @@
                                          alt="photo" width="400" align="right" style="padding: 20px">
                                 {% endif %}
                                 <div class="caption">
-                                    <h3 class="caption__item-title">{{ item.title }}</h3>
-                                    <p class="caption__content">{{ item.content|linebreaks }}</p>
-                                    <br>
-                                    <br>
-                                    <p><a href="{{ item.get_absolute_url }}" class="btn btn-primary" role="button" style="margin-left: 20px">Read
-                                        more...</a></p>
+                                    <p class="caption__content">{{ news_item.content|linebreaks }}</p>
                                 </div>
                                 <hr>
-                                <div class="footercard">{{ item.created_at|timesince }}</div>
+                                <div class="footercard">{{ news_item.created_at|timesince }}</div>
                             </div>
                         </div>
                     </div>
-
-                {% endfor %}
             </div>
 
         </div>

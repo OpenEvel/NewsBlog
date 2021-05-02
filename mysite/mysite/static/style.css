@@ -1,0 +1,26 @@
+.card-header {
+    background-color: #f8f8f8;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.footercard {
+    background-color: #f8f8f8;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.nowtime {
+    background-color: #eae8e8;
+    border-radius: 20px 20px 0 0;
+    padding: 10px;
+    margin-right: 100px;
+}
+
+.caption__content {
+    padding-left: 30px;
+}
+
+.caption__item-title {
+    padding-left: 20px;
+}

@@ -1,0 +1,14 @@
+{% load news_tags %}
+{% comment "Так можно комментировать блоки" %}{% load news_tags %}
+<div class="list-group">
+    {% get_categories as categories %}
+    {% for item in categories %}
+        <a href="{% url 'category' item.pk %}" class="list-group-item">{{ item.title }}</a>
+    {% endfor %}
+</div>
+
+<br>
+{% endcomment %}
+
+
+{% show_categories arg2='User' arg1='Hi' %}
