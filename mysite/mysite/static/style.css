@@ -17,10 +17,11 @@
     margin-right: 100px;
 }
 
-.caption__content {
-    padding-left: 30px;
-}
-
 .caption__item-title {
     padding-left: 20px;
+}
+
+.errorlist {
+    color: red;
+    st: none;
 }

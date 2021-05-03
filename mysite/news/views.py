@@ -1,6 +1,7 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpResponse
 # Create your views here.
+from .forms import NewsForm
 from .models import *
 
 
@@ -29,3 +30,20 @@ def get_category(request, category_id):
 def view_news(request, news_id):
     news_item = get_object_or_404(News, pk=news_id)
     return render(request, template_name='news/view_news.html', context={"news_item": news_item})
+
+def add_news(request):
+    if request.method == 'POST':
+        form = NewsForm(request.POST)
+        if form.is_valid():
+            print(form.cleaned_data) # если поля формы проходят валидацию они попадают в словарь cleaned_data
+            # News.objects.create(**form.cleaned_data) # ** - распаковка словарей
+            # return redirect('home')
+            # news = News.objects.create(**form.cleaned_data) # ** - распаковка словарей
+            news = form.save() # в случае с forms.ModelForm
+            return redirect(news)
+
+    else:
+        form = NewsForm()
+    return render(request, 'news/add_news.html', {"form": form})
+
+

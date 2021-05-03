@@ -21,14 +21,15 @@
                         <div class="col-sm-8 col-md-12">
                             <div class="thumbnail">
                                 <div class="card-header">Категория: <a href="{% url 'category' news_item.category_id %}">{{ item.category }}</a></div>
-                                {% if item.photo.urls %}
-                                    <img src="{{ item.photo.urlS }}" alt="{{ item.title }}" height="200" width="300"
-                                         align="right" style="padding: 20px">
-                                {% else %}
-                                    <img src="https://i.picsum.photos/id/1004/5616/3744.jpg?hmac=Or7EJnz-ky5bsKa9_frdDcDCR9VhCP8kMnbZV6-WOrY"
-                                         alt="photo" width="400" align="right" style="padding: 20px">
-                                {% endif %}
                                 <div class="caption">
+                                    {% if item.photo.urls %}
+                                        <img src="{{ item.photo.urlS }}" alt="{{ item.title }}" height="200" width="300"
+                                             align="right" style="padding: 20px">
+                                    {% else %}
+                                        <img src="https://i.picsum.photos/id/1004/5616/3744.jpg?hmac=Or7EJnz-ky5bsKa9_frdDcDCR9VhCP8kMnbZV6-WOrY"
+                                             alt="photo" width="400" align="right" style="padding: 20px">
+                                    {% endif %}
+
                                     <p class="caption__content">{{ news_item.content|linebreaks }}</p>
                                 </div>
                                 <hr>
