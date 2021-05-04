@@ -26,23 +26,25 @@
                 {% for item in news %}
 
                     <div class="row">
-                        <div class="col-sm-8 col-md-12">
+                        <div class="col-sm-8 col-md-10">
                             <div class="thumbnail">
                                 <div class="card-header">Категория: {{ item.category }}</div>
-                                {% if item.photo.urls %}
-                                    <img src="{{ item.photo.urlS }}" alt="{{ item.title }}" height="200" width="300"
-                                         align="right" style="padding: 20px">
-                                {% else %}
-                                    <img src="https://i.picsum.photos/id/1004/5616/3744.jpg?hmac=Or7EJnz-ky5bsKa9_frdDcDCR9VhCP8kMnbZV6-WOrY"
-                                         alt="photo" width="400" align="right" style="padding: 20px">
-                                {% endif %}
-                                <div class="caption">
+                                <div class="content__inner">
+                                    <div class="caption">
                                     <h3 class="caption__item-title">{{ item.title }}</h3>
                                     <p class="caption__content">{{ item.content|linebreaks }}</p>
                                     <br>
                                     <br>
                                     <p><a href="{{ item.get_absolute_url }}" class="btn btn-primary" role="button" style="margin-left: 20px">Read
                                         more...</a></p>
+                                    </div>
+                                    {% if item.photo and item.photo.url %}
+                                        <img src="{{ item.photo.url }}" alt="{{ item.title }}" height="auto" width="400"
+                                             align="right" style="padding: 20px">
+                                    {% else %}
+                                        <img src="https://i.picsum.photos/id/1004/5616/3744.jpg?hmac=Or7EJnz-ky5bsKa9_frdDcDCR9VhCP8kMnbZV6-WOrY"
+                                             alt="photo" width="400" align="right" style="padding: 20px">
+                                    {% endif %}
                                 </div>
                                 <hr>
                                 <div class="footercard">{{ item.created_at|timesince }}</div>

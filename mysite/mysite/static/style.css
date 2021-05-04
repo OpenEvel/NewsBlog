@@ -25,3 +25,8 @@
     color: red;
     st: none;
 }
+
+.content__inner {
+    display: flex;
+    justify-content: space-between;
+}

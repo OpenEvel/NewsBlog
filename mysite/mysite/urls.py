@@ -20,11 +20,10 @@ from django.urls import path, include
 from django.conf.urls.static import static
 
 from mysite import settings
-from news.views import index
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('news.urls'))
+    path('', include('news.urls')),
 ]
 
 urlpatterns = [

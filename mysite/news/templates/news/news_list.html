@@ -23,7 +23,7 @@
             </div>
 
             <div class="col-md-12">
-                {% for item in news %}
+                {% for item in object_list %}
 
                     <div class="row">
                         <div class="col-sm-8 col-md-10">
@@ -35,7 +35,7 @@
                                         <p class="caption__content">{{ item.content|linebreaks }}</p>
                                         <br>
                                         <br>
-                                        <p><a href="{{ item.get_absolute_url }}" class="btn btn-primary" role="button" style="margin-left: 20px">Read
+                                        <p><a href="{{ item.get_absolute_url }}" class="btn btn-primary" role="button"style="padding: 20px">Read
                                             more...</a></p>
                                     </div>
                                     {% if item.photo and item.photo.url %}
